@@ -1,0 +1,10 @@
+
+/* Home page */
+.jumbotron {
+    text-align: center;
+}
+
+/* Survey Page */
+#name, #profile-pic {
+    width: 100%;
+}

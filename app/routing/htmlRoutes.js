@@ -1,4 +1,7 @@
 
+// dependencies
+var path = require("path");
+
 // HTML GET Requests
 module.exports = function (app) {
 
