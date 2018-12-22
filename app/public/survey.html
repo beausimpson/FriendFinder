@@ -16,7 +16,7 @@
         crossorigin="anonymous">
 
     <!-- site specific CSS -->
-    <link rel="stylesheet" type="text/css" media="screen" href="/css/style.css"/>
+    <link rel="stylesheet" type="text/css" media="screen" href="/css/style.css" />
 
     <!-- JavaScript and jQuery links -->
     <script src="https://code.jquery.com/jquery.js"></script>
@@ -85,7 +85,7 @@
                             <option value="5">5 (Strongly Agree)</option>
                         </select>
                         <hr>
-                        h3><strong>Question 5</strong></h3>
+                        <h3><strong>Question 5</strong></h3>
                         <h4>People can rarely upset you.</h4>
                         <select class="chosen-select" id="q5">
                             <option value="">Select an Option</option>
@@ -151,7 +151,7 @@
                             <option value="4">4</option>
                             <option value="5">5 (Strongly Agree)</option>
                         </select>
-                        <br>
+                        <hr>
                         <button type="submit" class="btn btn-primary btn-lg btn-block" id="submit-btn"><i class="fa fa-check-circle"></i>Submit</button>
                     </form>
                 </div>
@@ -168,6 +168,36 @@
     $("#submit-btn").on("click", function (event) {
         event.preventDefault();
         console.log("submit works")
+
+            console.log(typeof userScores);
+
+        var newFriend = {
+            name: $("#name").val().trim(),
+            profilePic: $("#profile-pic").val().trim(),
+            scores: [
+                $("#q1").val(),
+                $("#q2").val(),
+                $("#q3").val(),
+                $("#q4").val(),
+                $("#q5").val(),
+                $("#q6").val(),
+                $("#q7").val(),
+                $("#q8").val(),
+                $("#q9").val(),
+                $("#q10").val(),
+            ];
+        }
+
+        $.post("/api/friends", newFriend,
+            function (data) {
+
+                console.log(data);
+
+                // $("#name").val("");
+                // $("#profile-pic").val("");
+                // $(".chosen-select").val("");
+
+            });
 
     });
 
