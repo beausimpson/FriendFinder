@@ -13,7 +13,7 @@ module.exports = function (app) {
     app.post("/api/friends", function (req, res) {
         newFriend = req.body
         friendData.push(newFriend);
-        // res.json(newFriend)
+        res.json(newFriend)
 
         // newFriend.scores = newFriend.scores.map((x) =>parseInt(x))
         // TODO: compare newFriend to friendData
