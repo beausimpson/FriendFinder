@@ -12,7 +12,7 @@ module.exports = function (app) {
 
     app.post("/api/friends", function (req, res) {
         newFriend = req.body
-        friendData.push(newFriend);
+        friendData.append(newFriend);
         res.json(newFriend)
 
         // newFriend.scores = newFriend.scores.map((x) =>parseInt(x))
