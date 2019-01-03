@@ -12,23 +12,24 @@ module.exports = function (app) {
 
     app.post("/api/friends", function (req, res) {
         newFriend = req.body
+        newFriend.scores = newFriend.scores.map((x) => parseInt(x))
+
+        var newFriendScore = 0;
+        for (var i = 0; i < newFriend.scores.length; i++) {
+            newFriendScore += newFriend.scores[i];
+        }
+
+        var friendDataScore = 0;
+        for (var i = 0; i < friendData.length; i++) {
+            for (var j = 0; j < friendData[i].scores.length; j++) {
+                friendDataScore += friendData[i].scores[j];
+            }
+        }
+
         friendData.push(newFriend);
-        res.json(newFriend)
+        // res.json(friendData)
 
-        // newFriend.scores = newFriend.scores.map((x) =>parseInt(x))
-
-        // for (var i = 0; i < friendData.length; i++) {
-        //     // console.log(friendData[i].scores)
-        //     for (var j = 0; j < friendData[i].scores.length; j++) {
-        //         console.log(typeof friendData[i].scores[j])
-        //     }
-        // }
-
-        // TODO: compare newFriend to friendData
-        // take scores from new friend and compare to the scores of the friends in the friendData Array
-        // returns the friend that has the smallest difference in scores
-        // displays the name and picture of closest match in modal on screen 
-
+        res.json(newFriend);
     });
 
 };

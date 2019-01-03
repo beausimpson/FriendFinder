@@ -8,3 +8,11 @@
 #name, #profile-pic {
     width: 100%;
 }
+
+/* modal image */
+#friend-pic {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 75%;
+}
