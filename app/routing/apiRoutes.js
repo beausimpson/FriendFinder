@@ -18,6 +18,7 @@ module.exports = function (app) {
         for (var i = 0; i < newFriend.scores.length; i++) {
             newFriendScore += newFriend.scores[i];
         }
+        console.log(newFriendScore);
 
         var friendDataScore = 0;
         for (var i = 0; i < friendData.length; i++) {
@@ -25,6 +26,13 @@ module.exports = function (app) {
                 friendDataScore += friendData[i].scores[j];
             }
         }
+        if (friendDataScore - newFriendScore || newFriendScore - friendDataScore <= 5) {
+            console.log(friendData[i])
+        }
+        console.log(friendDataScore);
+
+
+
 
         friendData.push(newFriend);
         // res.json(friendData)
