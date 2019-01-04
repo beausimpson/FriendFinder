@@ -13,6 +13,7 @@ module.exports = function (app) {
     app.post("/api/friends", function (req, res) {
         newFriend = req.body
         newFriend.scores = newFriend.scores.map((x) => parseInt(x))
+        friendData.push(newFriend);
 
         var newFriendScore = 0;
         for (var i = 0; i < newFriend.scores.length; i++) {
@@ -32,7 +33,6 @@ module.exports = function (app) {
         }
         console.log(friendDataScore);
 
-        friendData.push(newFriend);
 
     });
 
