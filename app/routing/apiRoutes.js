@@ -22,22 +22,18 @@ module.exports = function (app) {
 
         var friendDataScore = 0;
         for (var i = 0; i < friendData.length; i++) {
-            for (var j = 0; j < friendData[i].scores.length; j++) {
+
+            for (var j = 0; j < friendData[i].name.length; j++) {
                 friendDataScore += friendData[i].scores[j];
             }
-        }
-        if (friendDataScore - newFriendScore || newFriendScore - friendDataScore <= 5) {
-            console.log(friendData[i])
+            if (friendDataScore - newFriendScore <= 5 || newFriendScore - friendDataScore <= 5) {
+                res.json(friendData[i])
+            }
         }
         console.log(friendDataScore);
 
-
-
-
         friendData.push(newFriend);
-        // res.json(friendData)
 
-        res.json(newFriend);
     });
 
 };
